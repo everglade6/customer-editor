@@ -165,3 +165,92 @@ a.secondary {
     filter: invert();
   }
 }
+
+/* Page-specific styles migrated from inline styles in page.js */
+.container {
+  min-height: 100vh;
+  background: #2c6b66;
+  background-attachment: fixed;
+  color: #000;
+  font-family: var(--font-comic), 'Comic Sans MS', 'Comic Sans', 'Papyrus', cursive, sans-serif;
+  text-align: center;
+  padding: 24px;
+}
+
+.logoWrapper {
+  margin-bottom: 24px;
+}
+
+.logoImage {
+  display: block;
+  margin: 0 auto;
+  width: auto;
+  height: auto;
+  max-width: 100%;
+}
+
+.panel {
+  max-width: 980px;
+  margin: 0 auto;
+  background: #fffbe6;
+  border: 6px outset #ff00ff;
+  box-shadow: 0 0 20px rgba(0, 0, 0, 0.35);
+  padding: 24px 16px;
+  border-radius: 8px;
+}
+
+.marquee {
+  font-size: 24px;
+  color: #d400ff;
+}
+
+.separator {
+  border: 0;
+  height: 6px;
+  background: #808080;
+}
+
+.content {
+  padding: 16px 8px;
+}
+
+.lead {
+  font-size: 18px;
+  margin-bottom: 16px;
+}
+
+.buttons {
+  display: flex;
+  gap: 16px;
+  justify-content: center;
+  flex-wrap: wrap;
+}
+
+.button {
+  padding: 10px 16px;
+  color: #000;
+  text-decoration: none;
+  font-weight: 700;
+  text-transform: uppercase;
+  display: inline-block;
+}
+
+.buttonAdd {
+  background: #00ffcc;
+  border: 4px ridge #008b8b;
+}
+
+.buttonView {
+  background: #ff6ec7;
+  border: 4px ridge #b03060;
+}
+
+.buttonAbout {
+  background: #ffff66;
+  border: 4px ridge #daa520;
+}
+
+.tip {
+  font-size: 14px;
+  color: #333;
+}
