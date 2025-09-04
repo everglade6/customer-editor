@@ -1,0 +1,139 @@
+.container {
+    position: relative;
+    min-height: 100vh;
+    background: #f0f0f0;
+    padding: 0;
+    margin: 0;
+    overflow-x: hidden;
+  }
+  
+  /* Fixed side images */
+  .sideLeft {
+    position: fixed;
+    left: 0;
+    top: 50%;
+    transform: translateY(-50%);
+    z-index: 10;
+    width: 200px;
+    height: 600px;
+  }
+  
+  .sideRight {
+    position: fixed;
+    right: 0;
+    top: 50%;
+    transform: translateY(-50%);
+    z-index: 10;
+    width: 200px;
+    height: 600px;
+  }
+  
+  .sideImage {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+  }
+  
+  /* Header section */
+  .header {
+    position: relative;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 20px;
+    background: #333;
+    z-index: 5;
+    margin-bottom: 20px;
+  }
+  
+  .navButton {
+    background: #444;
+    color: white;
+    text-decoration: none;
+    padding: 12px 24px;
+    border-radius: 6px;
+    font-size: 14px;
+    font-weight: 500;
+    transition: background-color 0.2s;
+    z-index: 6;
+  }
+  
+  .navButton:hover {
+    background: #2980b9;
+  }
+  
+  .headerImageContainer {
+    position: absolute;
+    left: 50%;
+    transform: translateX(-50%);
+    z-index: 6;
+  }
+  
+  .headerImage {
+    width: 400px;
+    height: 100px;
+    object-fit: contain;
+  }
+  
+  .headerSpacer {
+    width: 120px; /* Same width as nav button to balance layout */
+  }
+  
+  /* Main content area */
+  .content {
+    position: relative;
+    z-index: 1;
+    padding: 20px;
+    margin: 0 220px; /* Account for fixed side images */
+    min-height: calc(100vh - 140px);
+  }
+  
+  .imageGrid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 20px;
+    max-width: 1000px;
+    margin: 0 auto;
+  }
+  
+  .gridImage {
+    width: 100%;
+    height: 300px;
+    object-fit: cover;
+    border-radius: 8px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    transition: transform 0.3s ease;
+  }
+  
+  .gridImage:hover {
+    transform: scale(1.05);
+  }
+  
+  /* Responsive design */
+  @media (max-width: 1200px) {
+    .sideLeft,
+    .sideRight {
+      display: none;
+    }
+    .content {
+        margin: 0 20px;
+    }
+    .imageGrid {
+        grid-template-columns: repeat(2, 1fr);
+      }
+    }
+    
+    @media (max-width: 768px) {
+      .headerImage {
+        width: 300px;
+        height: 75px;
+      }
+      
+      .imageGrid {
+        grid-template-columns: 1fr;
+      }
+      
+      .gridImage {
+        height: 250px;
+      }
+}
