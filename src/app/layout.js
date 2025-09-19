@@ -1,5 +1,6 @@
 import { Geist, Geist_Mono, Comic_Neue } from "next/font/google";
 import "./globals.css";
+import { AuthProvider } from '../contexts/AuthContext';
 
 export const metadata = {
   title: "Customer Management System",
@@ -10,7 +11,9 @@ export default function RootLayout({ children }) {
   return (
     <html lang="en">
       <body>
-        {children}
+        <AuthProvider>
+          {children}
+        </AuthProvider>
       </body>
     </html>
   );

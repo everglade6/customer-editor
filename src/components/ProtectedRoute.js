@@ -3,23 +3,18 @@
 import { useEffect } from 'react';
 import { useRouter } from 'next/navigation';
 import { useAuth } from '../contexts/AuthContext';
-import ProtectedRoute from '../components/ProtectedRoute';
 
-function HomeContent() {
-  const router = useRouter();
+const ProtectedRoute = ({ children }) => {
   const { isAuthenticated, loading } = useAuth();
+  const router = useRouter();
 
   useEffect(() => {
-    if (!loading) {
-      if (isAuthenticated) {
-        router.push('/customers');
-      } else {
-        router.push('/login');
-      }
+    if (!loading && !isAuthenticated) {
+      router.push('/login');
     }
   }, [isAuthenticated, loading, router]);
 
-  // Show loading while redirecting
+  // Show loading spinner while checking authentication
   if (loading) {
     return (
       <div style={{
@@ -31,19 +26,18 @@ function HomeContent() {
         color: '#ffffff',
         fontSize: '18px'
       }}>
-        <div>Redirecting...</div>
+        <div>Loading...</div>
       </div>
     );
   }
 
-  // This will never render due to the redirect above
-  return null;
-}
+  // If not authenticated, don't render anything (redirect will happen)
+  if (!isAuthenticated) {
+    return null;
+  }
 
-export default function Home() {
-  return (
-    <ProtectedRoute>
-      <HomeContent />
-    </ProtectedRoute>
-  );
-}
+  // If authenticated, render the protected content
+  return children;
+};
+
+export default ProtectedRoute;
